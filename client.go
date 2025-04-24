@@ -357,8 +357,7 @@ func (d *Dialer) DialContext(ctx context.Context, urlStr string, requestHeader h
 		}
 	}
 
-	if resp.StatusCode < 100 || resp.StatusCode > 299 ||
-	resp.Header.Get("Sec-Websocket-Accept") != computeAcceptKey(challengeKey) {
+	if resp.StatusCode < 100 || resp.StatusCode > 299 {
 		// Before closing the network connection on return from this
 		// function, slurp up some of the response to aid application
 		// debugging.
